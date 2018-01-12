@@ -1,7 +1,7 @@
 "use strict";
 // Node-Http-Modul importieren
 const Http = require("http");
-// Node-Url-Modul importieren
+// Node-Url-Modul importieren 
 const Url = require("url");
 var ServerTest;
 (function (ServerTest) {
@@ -29,16 +29,18 @@ var ServerTest;
         // Header: ?
         _response.setHeader("Access-Control-Allow-Origin", "*");
         // Response-Body
-        _response.write("Ich höre Stimmen!!<br>");
+        /*_response.write("Ich höre Stimmen!!<br>");
         _response.write("Port: " + port + "<br>");
         _response.write("Method: " + _request.method + "<br>");
         _response.write("Url: " + _request.url + "<br>");
-        _response.write("Headers: " + _request.headers + "<br>");
+        _response.write("Headers: " + _request.headers + "<br>");*/
         // ?
         let query = Url.parse(_request.url, true).query;
         // ?
-        for (let key in query)
+        for (let key in query) {
             console.log(key + ": " + query[key]);
+            _response.write(key + ": " + query[key]);
+        }
         // Antwort abschließen und abschicken
         _response.end();
     }

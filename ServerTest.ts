@@ -1,13 +1,13 @@
 // Node-Http-Modul importieren
 import * as Http from "http";
-// Node-Url-Modul importieren
-import * as Url from "url";
+// Node-Url-Modul importieren 
+import * as Url from "url"; 
   
 namespace ServerTest {
     // Neuer Datentyp AssocStringString: homogenes, assoziatives Array.
-    interface AssocStringString {
+    interface AssocStringString { 
         [key: string]: string;
-    }
+    }    
     
     // Port vom Process-Objekt erfragen 
     let port: number = process.env.PORT;
@@ -37,13 +37,13 @@ namespace ServerTest {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         
         // Response-Body
-       /* _response.write("Ich höre Stimmen!!<br>");
+        /*_response.write("Ich höre Stimmen!!<br>");
         _response.write("Port: " + port + "<br>");
         _response.write("Method: " + _request.method + "<br>");
         _response.write("Url: " + _request.url + "<br>");
-        _response.write("Headers: " + _request.headers + "<br>");
+        _response.write("Headers: " + _request.headers + "<br>");*/
         
-        */
+        
 
         // ?
         let query: AssocStringString = Url.parse(_request.url, true).query;
