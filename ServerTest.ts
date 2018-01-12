@@ -2,7 +2,7 @@
 import * as Http from "http";
 // Node-Url-Modul importieren
 import * as Url from "url";
-
+  
 namespace ServerTest {
     // Neuer Datentyp AssocStringString: homogenes, assoziatives Array.
     interface AssocStringString {
@@ -37,17 +37,22 @@ namespace ServerTest {
         _response.setHeader("Access-Control-Allow-Origin", "*");
         
         // Response-Body
-        _response.write("Ich höre Stimmen!!<br>");
+       /* _response.write("Ich höre Stimmen!!<br>");
         _response.write("Port: " + port + "<br>");
         _response.write("Method: " + _request.method + "<br>");
         _response.write("Url: " + _request.url + "<br>");
         _response.write("Headers: " + _request.headers + "<br>");
+        
+        */
 
         // ?
         let query: AssocStringString = Url.parse(_request.url, true).query;
         // ?
-        for (let key in query)
+               
+        for (let key in query) {
             console.log(key + ": " + query[key]);
+            _response.write(key + ": " + query[key]);
+            }
         
         // Antwort abschließen und abschicken
         _response.end();
